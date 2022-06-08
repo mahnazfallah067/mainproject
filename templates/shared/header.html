@@ -1,0 +1,116 @@
+{% load static %}
+    <!-- Loder Start -->
+	<div class="loader-box">
+		<div class="infinity-loader">
+            <div class="bg">
+              <!--background circles-->
+              <div class="left-bg"></div>
+              <div class="right-bg"></div>
+            </div>
+            <div class="fg">
+              <!--foreground circles-->
+              <div class="top-left-rect">
+                <div></div>
+              </div>
+              <div class="bottom-right-rect">
+                <div></div>
+              </div>
+              <div class="top-right-rect">
+                <div></div>
+              </div>
+              <div class="bottom-left-rect">
+                <div></div>
+              </div>
+            </div>
+          </div>
+	</div>
+	<!-- Loder End -->
+
+     <!-- Header Start -->
+     <header class="site-header">
+        <!-- Top start -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+					<div class="col-lg-7">
+						<div class="header-contact">
+							<a href="javascript:void(0)" title="Mail to info@gmail.com"><span><img src="{% static 'images/email.png' %}" alt="Mail Icon"></span>info@gmail.com</a>
+                            <a href="javascript:void(0)" title="Call on +91 555 234-8765"><span><img src="{% static 'images/call.png' %}" alt="Call Icon"></span>09123456789</a>
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="Social-midea">
+							<a href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)" title="Pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <!-- Top End -->
+
+        <!--Navbar Start  -->
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <!-- Sit Logo Start -->
+                        <div class="site-branding">
+                            <a href="index.html" title="Misaru">
+                                <img src="{% static 'images/logo.png' %}" alt="Logo">
+                                <img src="{% static 'images/stickey-logo.png' %}" class="sticky-logo" alt="Logo">
+                            </a>
+                        </div>
+                        <!-- Sit Logo End -->
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="header-menu">
+                            <nav class="main-navigation">
+                                <button class="toggle-button">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                               <ul class="menu">
+                                   <li class="active"><a href="/">خانه</a></li>
+                                   <li><a href="/about-us">درباره ما</a></li>
+                                   <li class="sub-items">
+                                    <a href="javascript:void(0);" title="services">اندیشکده</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="/product" title="services">اندیشکده</a></li>
+
+                                    </ul>
+                                </li>
+                                   <li class="sub-items">
+                                    <a href="javascript:void(0);" title="صفحات">صفحات</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="case.html" title="پروژه ها">پروژه ها</a></li>
+                                        <li><a href="case-detail.html" title="جزئیات پروژه">جزئیات پروژه</a></li>
+                                        <li><a href="team.html" title="تیم ما">تیم ما</a></li>
+                                        <li><a href="pricing.html" title="قیمت ها">قیمت ها</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-items">
+                                    <a href="javascript:void(0);" title="وبلاگ">وبلاگ</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog-list.html" title="لیست وبلاگ">لیست وبلاگ</a></li>
+                                        <li><a href="blog-detail.html" title="جزئیات وبلاگ">جزئیات وبلاگ</a></li>
+                                    </ul>
+                                </li>
+                                   <li><a href="contact-us.html">تماس با ما</a></li>
+                               </ul>
+                            </nav>
+                            <div class="black-shadow"></div>
+                            <div class="header-btn">
+                                <a href="javascript:void(0);" class="sec-btn" title="read more">دریافت مشاوره</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Navbar End  -->
+    </header>
+    <!-- Header End -->

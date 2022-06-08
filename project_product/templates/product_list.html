@@ -1,0 +1,369 @@
+ {% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+ {% block content %}
+
+{% for slider in sliders %}
+
+<section class="main-inner-banner back-img" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url({{ slider.image.url }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-page-banner-content">
+                        <h1 class="h1-title wow fadeup-animation" data-wow-delay="0.4s"> {{ slider.title }}</h1>
+                        <div class="breadcrumb-box wow fadeup-animation" data-wow-delay="0.5s">
+                            <ul>
+                                <li><a href="/">خانه</a></li>
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                <li><a href="services.html">اندیشکده ها</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endfor %}
+
+    <!-- Banner End-->
+
+
+         <!--خدمات Start-->
+            <section class="main-services-in">
+
+        <div class="container">
+
+            <div class="row">
+                {% for product in products %}
+
+            {% include 'product_item_component.html' with product=product %}
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </section>
+         <!--خدمات End-->
+
+
+
+
+
+
+    <!--Why Choose Us Start-->
+    <section class="main-why-choose-in">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.4s">
+                    <h2 class="h2-title">بهترین مشاوره را از ما دریافت کنید </h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
+                    <div class="why-we-tab mob-pt-30" data-aos="fade-up-left" data-aos-duration="1000">
+                        <ul class="nav why-tabs mb-30" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">رشد کسب و کار</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">مشاوره مالی</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">راه حل های جهانی</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="why-tab-wrapper">
+                                    <div class="why-tab-img">
+                                        <img src="{% static 'images/tab-img-1.jpg' %}" alt="Tab 1">
+                                    </div>
+                                    <div class="why-tab-list fix">
+                                        <ul>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="why-tab-wrapper">
+                                    <div class="why-tab-img">
+                                        <img src="{% static 'images/tab-img-2.jpg' %}" alt="Tab 2">
+                                    </div>
+                                    <div class="why-tab-list fix">
+                                        <ul>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                <div class="why-tab-wrapper">
+                                    <div class="why-tab-img">
+                                        <img src="{% static 'images/tab-img-3.jpg' %}" alt="Tab 3">
+                                    </div>
+                                    <div class="why-tab-list fix">
+                                        <ul>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Why Choose Us End-->
+
+    <!--Testimonial Start-->
+    <section class="main-testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-title">آنچه مشتری ما می گوید</h2>
+                </div>
+            </div>
+            <div class="row main-testimonial-slider wow fadeup-animation" data-wow-delay="0.4s">
+                <div class="col-lg-4">
+                    <div class="main-testimonial-box ml-15 mr-15">
+                        <p>&quot;لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است&quot;.</p>
+                        <h3 class="h3-title">سارا آلبرت</h3>
+                        <span>مشاور مالی</span>
+                        <div class="clinet-img">
+                            <img src="{% static 'images/client-1.jpg' %}" class="rounded-circle" alt="client">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="main-testimonial-box ml-15 mr-15">
+                        <p>&quot;لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است&quot;.</p>
+                        <h3 class="h3-title">سارا آلبرت</h3>
+                        <span>مشاور مالی</span>
+                        <div class="clinet-img">
+                            <img src="{% static 'images/client-2.jpg' %}" class="rounded-circle" alt="client">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="main-testimonial-box ml-15 mr-15">
+                        <p>&quot;لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است&quot;.</p>
+                        <h3 class="h3-title">سارا آلبرت</h3>
+                        <span>مشاور مالی</span>
+                        <div class="clinet-img">
+                            <img src="{% static 'images/client-3.jpg' %}" class="rounded-circle" alt="client">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="main-testimonial-box ml-15 mr-15">
+                        <p>&quot;لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است&quot;.</p>
+                        <h3 class="h3-title">سارا آلبرت</h3>
+                        <span>مشاور مالی</span>
+                        <div class="clinet-img">
+                            <img src="{% static 'images/client-4.jpg' %}" class="rounded-circle" alt="client">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Testimonial End-->
+
+    <!--Newsletter Start-->
+    <section class="main-newsletter">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 wow fadeInLeft" data-wow-delay="0.4s">
+                    <div class="newsletter-title">
+                        <h2 class="h2-title">برای خبرنامه مشترک شوید</h2>
+                        <span>با ما امور مالی خود را مدیریت کنید</span>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="newsletter-form wow fadeInRight" data-wow-delay="0.4s">
+                        <form>
+                            <input type="email" name="email" placeholder="ایمیل..." required>
+                            <button type="submit" class="sub-btn"><span>مشترک شوید</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Newsletter End-->
+
+    <!--تیم ما Start-->
+	<section class="main-team">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 class="h2-title">با کارشناسان ما آشنا شوید</h2>
+				</div>
+			</div>
+            <div class="row main-team-slider">
+                <div class="col-lg-3">
+                    <div class="team-box ml-15 mr-15 wow fadeup-animation" data-wow-delay="0.3s">
+                        <div class="team-img">
+                            <img src="{% static 'images/team-1.jpg' %}" alt="Member-1">
+                        </div>
+                        <div class="main-team-social">
+                            <div class="team-social">
+                                <a href="javascript:void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="h3-title">کوین مارتین</h3>
+                            <span>مشاور</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="team-box ml-15 mr-15 wow fadeup-animation" data-wow-delay="0.4s">
+                        <div class="team-img">
+                            <img src="{% static 'images/team-2.jpg' %}" alt="Member-1">
+                        </div>
+                        <div class="main-team-social">
+                            <div class="team-social">
+                                <a href="javascript:void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="h3-title">کریستین ایو</h3>
+                            <span>مشاور</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="team-box ml-15 mr-15 wow fadeup-animation" data-wow-delay="0.5s">
+                        <div class="team-img">
+                            <img src="{% static 'images/team-3.jpg' %}" alt="Member-1">
+                        </div>
+                        <div class="main-team-social">
+                            <div class="team-social">
+                                <a href="javascript:void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="h3-title">مایک هاردسون</h3>
+                            <span>مشاور</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="team-box ml-15 mr-15 wow fadeup-animation" data-wow-delay="0.6s">
+                        <div class="team-img">
+                            <img src="{% static 'images/team-4.jpg' %}" alt="Member-1">
+                        </div>
+                        <div class="main-team-social">
+                            <div class="team-social">
+                                <a href="javascript:void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="h3-title">جسیکا براون</h3>
+                            <span>مشاور</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="team-box ml-15 mr-15 wow fadeup-animation" data-wow-delay="0.7s">
+                        <div class="team-img">
+                            <img src="{% static 'images/team-5.jpg' %}" alt="Member-1">
+                        </div>
+                        <div class="main-team-social">
+                            <div class="team-social">
+                                <a href="javascript:void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="h3-title">سوزی وودز</h3>
+                            <span>مشاور</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</section>
+	<!--تیم ما End-->
+
+    <!--تماس با ما Start-->
+    <section class="main-get-touch">
+        <div class="mob-map map-mob-no map-mob-yes">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58345.8370356026!2d90.39051679999999!3d23.938690100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1603517982898!5m2!1sen!2sbd" width="1000" height="400" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="get-touch-box">
+                        <h2 class="h2-title">تماس با ما </h2>
+                        <div class="contact-form">
+                            <form>
+								<div class="row">
+									<div class="col-md-12 wow fadeup-animation" data-wow-delay="0.4s">
+										<div class="form-box">
+											<input type="text" name="Full Name" class="form-input" placeholder="نام کامل" required="">
+										</div>
+									</div>
+									<div class="col-md-12 wow fadeup-animation" data-wow-delay="0.5s">
+										<div class="form-box">
+											<input type="email" name="EmailAddress" class="form-input" placeholder="آدرس ایمیل" required="">
+										</div>
+									</div>
+									<div class="col-md-12 wow fadeup-animation" data-wow-delay="0.6s">
+										<div class="form-box">
+											<input type="text" name="Phone No" class="form-input" placeholder="تلفن تماس" required="">
+										</div>
+									</div>
+									<div class="col-12 wow fadeup-animation" data-wow-delay="0.7s">
+										<div class="form-box">
+											<textarea class="form-input" placeholder="پیغام شما"></textarea>
+										</div>
+									</div>
+									<div class="col-12 wow fadeup-animation" data-wow-delay="0.8s">
+										<div class="form-box mt-2">
+											<button type="submit" class="sec-btn"><span>ارسال</span></button>
+										</div>
+									</div>
+								</div>
+							</form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1 map-dax-no map-dax-yes">
+                    <div class="map-area">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58345.8370356026!2d90.39051679999999!3d23.938690100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1603517982898!5m2!1sen!2sbd" width="960" height="881" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--تماس با ما End-->
+ {% endblock %}
