@@ -23,6 +23,7 @@ urlpatterns = [
     path('', home_page),
     path('', include("project_product.urls")),
     path('', include("project_aboutus.urls")),
+    path('', include("project_contactus.urls")),
     path('header', header, name="header"),
     path('footer', footer, name="footer"),
     path('admin/', admin.site.urls),

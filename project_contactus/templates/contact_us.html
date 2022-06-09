@@ -1,0 +1,124 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block content %}
+       <!-- Banner Start-->
+    <section class="main-inner-banner back-img" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url({% static 'images/contact-banner.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-page-banner-content">
+                        <h1 class="h1-title wow fadeup-animation" data-wow-delay="0.4s">تماس با ما</h1>
+                        <div class="breadcrumb-box wow fadeup-animation" data-wow-delay="0.5s">
+                            <ul>
+                                <li><a href="/">خانه</a></li>
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                <li><a href="contact_page">تماس با ما</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner End-->
+
+    <!--We Are Here Start-->
+    <section class="main-we-are-here-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-title">{{ site_setting.title }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-help-box wow fadeup-animation" data-wow-delay="0.3s">
+                       <div class="contact-help-icon rounded-circle">
+                           <img src="{% static 'images/location-icon-2.png' %}" alt="location">
+                       </div>
+                       <div class="contact-help-content">
+                           <h3 class="h3-title">آدرس</h3>
+                           <p>{{ site_setting.place }}</p>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-help-box wow fadeup-animation" data-wow-delay="0.4s">
+                       <div class="contact-help-icon rounded-circle">
+                           <img src="{% static 'images/email-2.png' %}" alt="location">
+                       </div>
+                       <div class="contact-help-content">
+                           <h3 class="h3-title">ایمیل</h3>
+                           <p>{{ site_setting.email }}</p>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-help-box wow fadeup-animation" data-wow-delay="0.5s">
+                       <div class="contact-help-icon rounded-circle">
+                           <img src="{% static 'images/call-2.png' %}" alt="location">
+                       </div>
+                       <div class="contact-help-content">
+                           <h3 class="h3-title">تماس با ما</h3>
+                           <p>{{ site_setting.phone }}</p>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--We Are Here End-->
+
+    <!--تماس با ما تماس با ما Start-->
+    <section class="main-contact-touch-in">
+        <div class="container align-content-center">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 align-items-center" data-wow-delay="0.4s">
+                    <div class="contact-form mt-5 align-content-center">
+                        <form method="post" action="contact_page">
+
+                            <div class="row align-content-center">
+
+                                <div class="col-md-12">
+                                 {% csrf_token %}
+                                    {{ contact_form.family }}
+                                    {% for error in contact_form.family.errors %}
+                                <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                                </div>
+                            </div><br>
+                                <div class="col-md-12">
+                                  {{ contact_form.email }}
+                                    {% for error in contact_form.email.errors %}
+                                <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                                </div><br>
+                                <div class="col-md-12">
+                                   {{ contact_form.number }}
+                                    {% for error in contact_form.number.errors %}
+                                <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                                </div><br>
+                                <div class="col-12">
+                                  {{ contact_form.text }}
+                                    {% for error in contact_form.text.errors %}
+                                <p class="text-danger">{{ error }}</p>
+
+                                {% endfor %}
+                                {{ contact_form.non_field_errors }}
+                                </div><br>
+                                <div class="col-12">
+                                    <div class="form-box mt-2 mb-0">
+                                        <button type="submit" name="submit" class="sec-btn"><span>ارسال</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--تماس با ما تماس با ما End-->
+{% endblock %}

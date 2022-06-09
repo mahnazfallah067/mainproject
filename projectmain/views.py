@@ -3,16 +3,22 @@ import itertools
 from django.shortcuts import render
 from project_slider.models import Slider
 from project_product.models import Product
+from project_sitesetting.models import SiteSetting
 
 
-def header(request, *args, **kwargs):
-    context = {}
+def header(request):
+    context = {
+    }
     return render(request, 'shared/header.html', context)
 
 
-def footer(request, *args, **kwargs):
-    context = {}
+def footer(request):
+    site_setting = SiteSetting.objects.first()
+    context = {
+        'site_setting': site_setting
+    }
     return render(request, 'shared/footer.html', context)
+
 
 def mygrouper(n, iterable):
     args = [iter(iterable)] * n

@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'project_slider',
     'project_product',
     'project_slider_andishkadeh',
-    'project_aboutus'
+    'project_aboutus',
+    'project_contactus',
+    'project_sitesetting'
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'projectmain.context_processor.context_processor'
             ],
         },
     },
