@@ -21,8 +21,8 @@ class SliderAndishkadeh(models.Model):
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
 
     class Meta:
-        verbose_name = 'اسلایدر اندیشکده'
-        verbose_name_plural = 'اسلایدر اندیشکده'
+        verbose_name = 'اسلایدر گروه های علمی و پژوهشی'
+        verbose_name_plural = 'اسلایدر گروه های علمی و پژوهشی'
 
     def __str__(self):
         return self.title

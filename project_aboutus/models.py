@@ -18,7 +18,7 @@ def upload_image_path(instance, filename):
 
 class AboutUs(models.Model):
     title = models.TextField(max_length=120, verbose_name='عنوان')
-    description = models.CharField(max_length=1000, verbose_name='توضیحات')
+    description = models.TextField(max_length=2000, verbose_name='توضیحات')
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     slider = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
 

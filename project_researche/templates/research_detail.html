@@ -1,0 +1,70 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block content %}
+    {% for slider in slider %}
+         <section class="main-inner-banner back-img" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url({{ slider.slider.url }});">
+
+    {% endfor %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-page-banner-content">
+                        <h1 class="h1-title wow fadeup-animation" data-wow-delay="0.4s">جزئیات پژوهش های مرکز</h1>
+                        <div class="breadcrumb-box wow fadeup-animation" data-wow-delay="0.5s">
+                            <ul>
+                                <li><a href="/">خانه</a></li>
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                <li><a href="{{ detail.get_absolute_url }}">جزئیات پژوهش های مرکز</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner End-->
+
+    <!--جزئیات پروژه Start-->
+    <section class="main-case-detail">
+{#        {% for detail in detail %}#}
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+{#                    <div class="case-detail-img wow fadeup-animation" data-wow-delay="0.3s">#}
+{#                        <img src="{% static 'images/case-detail-1.jpg' %}" data-tilt data-tilt-max="3" alt="جزئیات پژوهش های مرکز">#}
+{#                    </div>#}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="case-detail-text-box">
+                        <div class="case-detail-icon">
+                            <img src="{% static 'images/case-detail-icon-1.png' %}" alt="Cae Detail Icon">
+                        </div>
+                        <h2 class="h2-title">{{ detail.title }}</h2>
+                        <p>{{ detail.description }}</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeup-animation" data-wow-delay="0.4s">
+                    <div class="case-detail-info">
+                        <h3 class="h3-title"> نام پژوهشگر</h3>
+                        <p> {{ detail.researcher_name }}</p>
+
+                        <h3 class="h3-title">تاریخ</h3>
+                        <p>  {{ detail.date }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{#        {% endfor %}#}
+
+    </section>
+    <!--جزئیات پروژه End-->
+
+
+{% endblock %}

@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'project_slider_andishkadeh',
     'project_aboutus',
     'project_contactus',
-    'project_sitesetting'
+    'project_sitesetting',
+    'project_researche',
+    'project_slider_research',
+    'project_blog'
 ]
 
 MIDDLEWARE = [

@@ -24,8 +24,8 @@ class Product(models.Model):
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
 
     class Meta:
-        verbose_name = 'اندیشکده ها',
-        verbose_name_plural = 'اندیشکده ها'
+        verbose_name = ' گروه های علمی و پژوهشی',
+        verbose_name_plural = ' گروه های علمی و پژوهشی'
 
     def __str__(self):
         return self.title

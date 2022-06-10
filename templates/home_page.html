@@ -41,7 +41,7 @@
                             </div>
                             <h1 class="h1-title">{{ slider.title2 }}</h1>
                             <p>{{ slider.description2 }}</p>
-                            <a href="javascript:void(0);" class="sec-btn" title="read more">بیشتر</a>
+                            <a href="" class="sec-btn" title="read more">بیشتر</a>
                         </div>
                         <div class="banner-content">
                             <div class="banner-small-title">
@@ -66,26 +66,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-title"> اندیشکده ها</h2>
+                    <h2 class="h2-title"> گروه های علمی و پژوهشی </h2>
                 </div>
             </div>
             <div class="row">
-                {% for group in product %}
+                {% for product in product %}
 
-                    {% for products in group  %}
-                        <div class="col-xl-3 col-lg-3 col-md-6">
+
+                        <div class="col-xl-3 col-lg-3 col-md-6 ">
                     <div class="main-service-box mob-mb-15 mob-mb-0 wow fadeup-animation" data-wow-delay="0.3s">
                         <div class="service-icon">
-                            <img src="{% static 'images/service-icon-1.png' %}">
+                            <img src="{% static 'images/service-icon-5.png' %}">
                         </div>
-                        <h3 class="h3-title"> {{products.title }}</h3>
-                        <p>{{ products.description|truncatechars:40}}</p>
-                        <a href="{{ products.get_absolute_url }}" class="arrow-btn"><i class="fa fa-chevron-left"></i></a>
-                    </div>
-                        <br>
+                        <h3 class="h3-title"> {{product.title }}</h3>
+                        <p>{{ product.description|truncatechars:40}}</p>
+                        <a href="{{ product.get_absolute_url }}" class="arrow-btn"><i class="fa fa-chevron-left"></i></a>
                     </div>
 
-                    {% endfor %}
+
+                    </div>
+
+
+
 
 
 
@@ -94,8 +96,9 @@
                 {% endfor %}
 
 
-            </div>
 
+            </div><br>
+             <a href="/product" class="sec-btn align-items-center" title="بیشتر">بیشتر</a>
 
 
         </div>
@@ -104,42 +107,44 @@
 
     <!--درباره ما Start-->
     <section class="main-about">
-        <div class="container">
+       {% for aboute_us in about_us %}
+            <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-img wow fadeInLeft" data-wow-delay="0.4s">
                         <div class="about-img-1">
-                            <img src="{% static 'images/about-1.jpg' %}" data-tilt data-tilt-max="3" alt="about us">
+                            <img src="{{ aboute_us.image.url }}" data-tilt data-tilt-max="3" alt="about us">
                         </div>
-                        <div class="about-img-2">
-                            <img src="{% static 'images/about-2.jpg' %}" alt="about us">
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
-                    <h2 class="h2-title mob-pt-30">کمک کنید تا فراتر از حد انتظار بروید</h2>
+                    <h2 class="h2-title mob-pt-30">درباره ی ما</h2>
                     <div class="main-about-pointbox">
                         <div class="about-point-box mr-15">
                             <img src="{% static 'images/tick.png' %}" alt="tick">
                                 <div class="about-point-content">
-                                    <p>راه حلی برای مشاغل کوچک و بزرگ</p>
+                                    <p>پژوهش های مطالعات زنان</p>
                                 </div>
                         </div>
                         <div class="about-point-box ml-15">
                             <img src="{% static 'images/tick.png' %}" alt="tick">
                                 <div class="about-point-content">
-                                    <p>راه حلی برای مشاغل کوچک و بزرگ</p>
+                                    <p>پژوهش های گسترده ی مطالعات زنان</p>
                                 </div>
                         </div>
                     </div>
                     <div class="about-content">
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز.</p>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز.</p>
-                        <a href="about-us.html" class="sec-btn" title="بیشتر">بیشتر</a>
+                        <p>{{ aboute_us.description|truncatechars:500 }}</p>
+
+                        <a href="/about-us" class="sec-btn" title="بیشتر">بیشتر</a>
                     </div>
                 </div>
             </div>
         </div>
+
+       {% endfor %}
+
     </section>
     <!--درباره ما End-->
 
@@ -165,32 +170,22 @@
                         </div>
                         <div class="counter-text">
                             <h2 class="h2-title counting-data" data-count="651">651+</h2>
-                            <p>مشتریان فعال</p>
+                        <p> پژوهشگران فعال</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <div class="counter-box mob-mt-15 mob-mb-30">
+                    <div class="counter-box mob-mb-15 mob-mb-30">
                         <div class="counter-icon">
-                            <img src="{% static 'images/counter-icon-3.png' %}" alt="فنجان قهوه">
+                            <img src="{% static 'images/counter-icon-2.png' %}" alt="مشتریان فعال">
                         </div>
                         <div class="counter-text">
-                            <h2 class="h2-title counting-data" data-count="768">768+</h2>
-                            <p>فنجان قهوه</p>
+                            <h2 class="h2-title counting-data" data-count="651">651+</h2>
+                        <p>  نشست های برگزار شده</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="counter-box mob-mt-15">
-                        <div class="counter-icon">
-                            <img src="{% static 'images/counter-icon-4.png' %}" alt="مشتریان خوشحال">
-                        </div>
-                        <div class="counter-text">
-                            <h2 class="h2-title counting-data" data-count="987">987+</h2>
-                            <p>مشتریان خوشحال</p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -201,154 +196,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-title">پروژه های ما</h2>
+                    <a href="/re_search"><h2 class="h2-title"> پژوهش های مرکز </h2></a>
                 </div>
             </div>
             <div class="row case-slider">
-                <div class="col-lg-4">
+                {% for research in research %}
+                    <div class="col-lg-4">
                     <div class="main-case-box mob-ml-15 mob-mr-15 wow fadeup-animation" data-wow-delay="0.5s">
                         <div class="case-box">
                             <div class="case-img">
-                                <img src="{% static 'images/case-1.jpg' %}" alt="case 1">
+                                <img src="{{ research.image.url }}" alt="case 1">
                             </div>
                             <div class="case-content">
                                 <div class="case-icon">
                                     <img src="{% static 'images/case-icon-1.png' %}" alt="case 1">
                                 </div>
-                                <h3 class="h3-title case-title"><a href="case-detail.html">رشد <br>کسب و کار</a></h3>
+                                <h3 class="h3-title case-title"><a href="{{ research.get_absolute_url }}">{{ research.title }}</a></h3>
                             </div>
                         </div>
                     </div>
+                    <br>
                 </div>
-                <div class="col-lg-4">
-                    <div class="main-case-box mob-ml-15 mob-mr-15 wow fadeup-animation" data-wow-delay="0.6s">
-                        <div class="case-box">
-                            <div class="case-img">
-                                <img src="{% static 'images/case-2.jpg' %}" alt="case 2">
-                            </div>
-                            <div class="case-content">
-                                <div class="case-icon">
-                                    <img src="{% static 'images/case-icon-2.png' %}" alt="case 2">
-                                </div>
-                                <h3 class="h3-title case-title"><a href="case-detail.html">مشاوره <br>مالی</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="main-case-box mob-ml-15 mob-mr-15 wow fadeup-animation" data-wow-delay="0.7s">
-                        <div class="case-box">
-                            <div class="case-img">
-                                <img src="{% static 'images/case-3.jpg' %}" alt="case 3">
-                            </div>
-                            <div class="case-content">
-                                <div class="case-icon">
-                                    <img src="{% static 'images/case-icon-3.png' %}" alt="case 3">
-                                </div>
-                                <h3 class="h3-title case-title"><a href="case-detail.html">مشاوره <br>بازاریابی</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+
+
             </div>
+         <a href="/re_search" class="sec-btn align-items-center" title="بیشتر">بیشتر</a>
         </div>
+
     </section>
     <!--پروژه ها End-->
 
-    <!--Play Video Start-->
-    <section class="main-video">
-        <div class="video-bg-img jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url({% static 'images/video-bg.jpg' %})"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="video-content">
-                        <h2 class="h2-title wow fadeup-animation" data-wow-delay="0.4s">کسب و کار خود را با <br>روش ما گسترش دهید</h2>
-                    </div>
-                    <div class="play-btn wow fadeup-animation" data-wow-delay="0.4s">
-                        <a href="javascript:void(0);" class="video-play-icon" title="Play Video"><span><i class="fa fa-play" aria-hidden="true"></i></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Play Video End-->
 
-    <!--Why Choose Us Start-->
-    <section class="main-why-choose">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.4s">
-                    <h2 class="h2-title">بهترین مشاوره را از ما دریافت کنید </h2>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="why-we-tab mob-pt-30 wow fadeInRight" data-wow-delay="0.4s" data-aos="fade-up-left" data-aos-duration="1000">
-                        <ul class="nav why-tabs mb-30" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">رشد کسب و کار</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">مشاوره مالی</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">راه حل های جهانی</button>
-                            </li>
-                        </ul>
 
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="why-tab-wrapper">
-                                    <div class="why-tab-img">
-                                        <img src="{% static 'images/tab-img-1.jpg' %}" alt="Tab 1">
-                                    </div>
-                                    <div class="why-tab-list fix">
-                                        <ul>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="why-tab-wrapper">
-                                    <div class="why-tab-img">
-                                        <img src="{% static 'images/tab-img-2.jpg' %}" alt="Tab 2">
-                                    </div>
-                                    <div class="why-tab-list fix">
-                                        <ul>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                <div class="why-tab-wrapper">
-                                    <div class="why-tab-img">
-                                        <img src="{% static 'images/tab-img-3.jpg' %}" alt="Tab 3">
-                                    </div>
-                                    <div class="why-tab-list fix">
-                                        <ul>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                            <li><img src="{% static 'images/tick-2.png' %}" alt="tick"><p>لورم ایپسوم متن ساختگی.</p></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Why Choose Us End-->
 
     <!--Testimonial Start-->
     <section class="main-testimonial">
@@ -581,28 +461,7 @@
 	</section>
 	<!--تیم ما End-->
 
-    <!--Newsletter Start-->
-    <section class="main-newsletter">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7 wow fadeInLeft" data-wow-delay="0.4s">
-                    <div class="newsletter-title">
-                        <h2 class="h2-title">برای خبرنامه مشترک شوید</h2>
-                        <span>با ما امور مالی خود را مدیریت کنید</span>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="newsletter-form wow fadeInRight" data-wow-delay="0.4s">
-                        <form>
-                            <input type="email" name="email" placeholder="ایمیل..." required>
-                            <button type="submit" class="sub-btn"><span>مشترک شوید</span></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Newsletter End-->
+
 
     <!--وبلاگ Start-->
     <section class="main-blog">

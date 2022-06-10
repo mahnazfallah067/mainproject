@@ -1,0 +1,56 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block content %}
+    {% for slider in slider %}
+         <section class="main-inner-banner back-img" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url({{ slider.slider.url }});">
+    {% endfor %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-page-banner-content">
+                        <h1 class="h1-title wow fadeup-animation" data-wow-delay="0.4s">پژوهش های مرکز </h1>
+                        <div class="breadcrumb-box wow fadeup-animation" data-wow-delay="0.5s">
+                            <ul>
+                                <li><a href="/">خانه</a></li>
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                <li><a href="/re_search"> پژوهش های مرکز</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner End-->
+
+    <!--پروژه ها Box Start-->
+    <section class="main-case-studies-in">
+        <div class="container">
+            <div class="row">
+
+                {% for research in research %}
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="main-case-box wow fadeup-animation" data-wow-delay="0.5s">
+                        <div class="case-box">
+                            <div class="case-img">
+                                <img src="{{ research.image.url }}" alt="case 5">
+                            </div>
+                            <div class="case-content">
+                                <div class="case-icon">
+                                    <img src="{% static 'images/case-icon-5.png' %}" alt="case 5">
+                                </div>
+                                <h3 class="h3-title case-title"><a href="{{ research.get_absolute_url }}"> {{ research.title }}</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+    <!--پروژه ها Box End-->
+{% endblock %}
