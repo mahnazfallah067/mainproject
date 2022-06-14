@@ -288,62 +288,28 @@
     <section class="main-faq faq-flot">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="faq-img" style="background-image: url({% static 'images/faq-img.jpg' %});">
-                    </div>
-                </div>
+
                 <div class="col-lg-6">
 					<div class="faq-content">
 						<h2 class="h2-title">پاسخ سوالات شما</h2>
 						<div class="accordion faq-box" id="accordionExample">
-							<div class="accordion-item faq-bg wow fadeup-animation" data-wow-delay="0.3s">
+							{% for questions in questions %}
+                                <div class="accordion-item faq-bg wow fadeup-animation" data-wow-delay="0.3s">
 							  <h3 class="accordion-header h3-title" id="headingOne">
 								<button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								لورم ایپسوم متن ساختگی با تولید؟<span class="icon"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+								{{ questions.question }}<span class="icon"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
 								</button>
 							  </h3>
 							  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 								<div class="accordion-body">
-								  <P>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</P>
+								  <P>{{ questions.answer }}</P>
 								</div>
 							  </div>
 							</div>
-							<div class="accordion-item faq-bg wow fadeup-animation" data-wow-delay="0.4s">
-							  <h3 class="accordion-header h3-title" id="headingTwo">
-								<button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								لورم ایپسوم متن ساختگی با تولید؟<span class="icon"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
-								</button>
-							  </h3>
-							  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<P>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</P>
-								</div>
-							  </div>
-							</div>
-							<div class="accordion-item faq-bg wow fadeup-animation" data-wow-delay="0.5s">
-							  <h3 class="accordion-header h3-title" id="headingThree">
-								<button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								لورم ایپسوم متن ساختگی با تولید؟<span class="icon"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
-								</button>
-							  </h3>
-							  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<P>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</P>
-								</div>
-							  </div>
-							</div>
-							<div class="accordion-item faq-bg wow fadeup-animation" data-wow-delay="0.6s">
-								<h3 class="accordion-header h3-title" id="headingFour">
-								  <button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-									لورم ایپسوم متن ساختگی با تولید؟<span class="icon"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
-								  </button>
-								</h3>
-								<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-								  <div class="accordion-body">
-									<P>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</P>
-								  </div>
-								</div>
-							  </div>
+
+							{% endfor %}
+
+
 						  </div>
 					</div>
 				</div>
@@ -472,105 +438,30 @@
                 </div>
             </div>
             <div class="row blog-slider">
-                <div class="col-lg-4">
+               {% for latest_product in latest_product %}
+                    <div class="col-lg-4">
                     <div class="blog-box mob-ml-15 mob-mr-15 wow fadeup-animation" data-wow-delay="0.4s">
                         <div class="blog-img">
-                            <img src="{% static 'images/blog-1.jpg' %}" alt="وبلاگ-1">
+                            <img src="{{ latest_product.image.url }}" alt="وبلاگ-1">
                             <div class="blog-date">
-                                <a href="javascript:void(0);" title="21 دی 1400">21 دی 1400</a>
+                                <a href="{{ latest_product.get_absolute_url }}">{{ latest_product.date }}</a>
                             </div>
                         </div>
                         <div class="blog-content">
-                            <h3 class="h3-title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.</h3>
-                            <a href="blog-detail.html" class="link-btn" title="بیشتر">بیشتر</a>
+                            <h3 class="h3-title">{{ latest_product.title }}</h3>
+                            <a href="{{ latest_product.get_absolute_url }}" class="link-btn" title="بیشتر">بیشتر</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="blog-box mob-ml-15 mob-mr-15 wow fadeup-animation" data-wow-delay="0.5s">
-                        <div class="blog-img">
-                            <img src="{% static 'images/blog-2.jpg' %}" alt="blog-2">
-                            <div class="blog-date">
-                                <a href="javascript:void(0);" title="21 دی 1400">21 دی 1400</a>
-                            </div>
-                        </div>
-                        <div class="blog-content">
-                            <h3 class="h3-title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.</h3>
-                            <a href="blog-detail.html" class="link-btn" title="بیشتر">بیشتر</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-box mob-ml-15 mob-mr-15 wow fadeup-animation" data-wow-delay="0.6s">
-                        <div class="blog-img">
-                            <img src="{% static 'images/blog-3.jpg' %}" alt="blog-3">
-                            <div class="blog-date">
-                                <a href="javascript:void(0);" title="21 دی 1400">21 دی 1400</a>
-                            </div>
-                        </div>
-                        <div class="blog-content">
-                            <h3 class="h3-title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.</h3>
-                            <a href="blog-detail.html" class="link-btn" title="بیشتر">بیشتر</a>
-                        </div>
-                    </div>
-                </div>
+
+
+               {% endfor %}
+
             </div>
         </div>
     </section>
     <!--وبلاگ End-->
 
-    <!--تماس با ما Start-->
-    <section class="main-get-touch">
-        <div class="mob-map map-mob-no map-mob-yes">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58345.8370356026!2d90.39051679999999!3d23.938690100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1603517982898!5m2!1sen!2sbd" width="1000" height="400" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-1 order-2">
-                    <div class="get-touch-box">
-                        <h2 class="h2-title">تماس با ما </h2>
-                        <div class="contact-form">
-                            <form>
-								<div class="row">
-									<div class="col-md-12 wow fadeup-animation" data-wow-delay="0.3s">
-										<div class="form-box">
-											<input type="text" name="نام" class="form-input" placeholder="نام" required>
-										</div>
-									</div>
-									<div class="col-md-12 wow fadeup-animation" data-wow-delay="0.4s">
-										<div class="form-box">
-											<input type="email" name="EmailAddress" class="form-input" placeholder="ایمیل" required>
-										</div>
-									</div>
-									<div class="col-md-12 wow fadeup-animation" data-wow-delay="0.5s">
-										<div class="form-box">
-											<input type="text" name="تلفن" class="form-input" placeholder="تلفن" required>
-										</div>
-									</div>
-									<div class="col-12 wow fadeup-animation" data-wow-delay="0.6s">
-										<div class="form-box">
-											<textarea class="form-input" placeholder="پیام..."></textarea>
-										</div>
-									</div>
-									<div class="col-12 wow fadeup-animation" data-wow-delay="0.7s">
-										<div class="form-box mt-2">
-											<button type="submit" class="sec-btn"><span>ارسال</span></button>
-										</div>
-									</div>
-								</div>
-							</form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-2 order-1 map-dax-no map-dax-yes">
-                    <div class="map-area">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58345.8370356026!2d90.39051679999999!3d23.938690100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1603517982898!5m2!1sen!2sbd" width="960" height="881" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--تماس با ما End-->
 
     {% endblock %}
 

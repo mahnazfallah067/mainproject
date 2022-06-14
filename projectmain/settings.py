@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'project_sitesetting',
     'project_researche',
     'project_slider_research',
-    'project_blog'
+    'project_blog',
+    'project_slider_blog',
+    'project_questions',
+
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,195 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block content %}
+     <!-- Banner Start-->
+    {% for slider in slider %}
+
+    <section class="main-inner-banner back-img" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url({{ slider.slider.url }});">
+    {% endfor %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-page-banner-content">
+                        <h1 class="h1-title wow fadeup-animation" data-wow-delay="0.4s">جزئیات نشست ها و مقالات</h1>
+                        <div class="breadcrumb-box wow fadeup-animation" data-wow-delay="0.4s">
+                            <ul>
+                                <li><a href="/">خانه</a></li>
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                <li><a href="/blog">لیست نشست ها و مقالات</a></li>
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner End-->
+    <!--جزئیات وبلاگ Start-->
+    <section class="main-blog-detail-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h3 class="h3-title pt-0">{{ detail_blog.title }}</h3>
+                    <div class="blog-social-content">
+                        <ul>
+                            <li><a href="javascript:void(0);"><img src="{% static 'images/author.png' %}" alt="author"><span>توسط میشل میشاتو</span></a></li>
+                            <li><a href="javascript:void(0);"><img src="{% static 'images/comment.png' %}" alt="comment"><span>5 دیدگاه</span></a></li>
+                            <li><a href="javascript:void(0);"><img src="{% static 'images/like.png' %}" alt="like"><span>125k لایک</span></a></li>
+                        </ul>
+                        <div class="blog-social-media">
+                            <a href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)" title="Pinterest"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-detail-img wow fadeup-animation" data-wow-delay="0.4s">
+                        <img src="{{ detail_blog.image.url }}" alt="blog 1">
+                        <div class="blog-date">
+                            <a href="javascript:void(0);" title="21 دی 1400">{{ detail_blog.date }}</a>
+                        </div>
+                    </div>
+                    <p>{{ detail_blog.description }}</p>
+
+
+
+                    <div class="blog-quote-box">
+                        <div class="blog-quote-img">
+                            <img src="{% static 'images/blog-quote.png' %}" alt="quote">
+                        </div>
+                        <p>{{ detail_blog.purpose }}</p>
+                    </div>
+
+                    <p>{{ detail_blog.description2 }}</p>
+
+
+
+
+                    <!--comments Start-->
+                    <div class="main-comment">
+                        <h2 class="h2-title">دیدگاه</h2>
+                       {% for comment in comments %}
+                            <div class="comment-box odd wow fadeup-animation" data-wow-delay="0.4s">
+
+                            <div class="comment-content">
+                                <h3 class="h3-title">{{ comment.name }}</h3>
+                                <p>{{ comment.body }}</p>
+                                <a href="javascript:void(0);" class="reply-btn"><i class="fa fa-reply" aria-hidden="true"></i> پاسخ</a>
+                            </div>
+                        </div><br>
+                           {% empty %}
+                           <p>دیدگاهی وجود ندارد</p>
+
+                       {% endfor %}
+
+
+                    </div>
+                    <!--comments Start-->
+
+                    <!--ارسال پاسخ Start-->
+                    <div class="main-leave-reply">
+                       <h2 class="h2-title">ارسال پاسخ</h2>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                                <div class="col-lg-12 wow fadeup-animation" data-wow-delay="0.8s">
+                                    <div class="form-box">
+                                        <button type="submit" name="sumbit" value="send" class="sec-btn"><span>ارسال</span></button>
+                                    </div>
+                                </div>
+
+                        </form>
+                    </div>
+                    <!--ارسال پاسخ End-->
+                </div>
+
+                <!--Side Bar Start-->
+                <div class="col-lg-4">
+                    <div class="blog-list-sidebar">
+                        <div class="blog-search-from wow fadeup-animation" data-wow-delay="0.4s">
+							<form>
+								<div class="form-box">
+									<input type="text" name="search" placeholder="جستجو..." required>
+									<button type="submit" class="sec-btn"><span><i class="fa fa-search" aria-hidden="true"></i></span></button>
+								</div>
+							</form>
+						</div>
+                        <div class="category-box wow fadeup-animation" data-wow-delay="0.4s">
+                            <h2 class="h2-title">دسته بندی</h2>
+                            <ul>
+                                <li><a href="javascript:void(0);"><i class="fa fa-angle-right" aria-hidden="true"></i>کسب و کار</a></li>
+                                <li><a href="javascript:void(0);"><i class="fa fa-angle-right" aria-hidden="true"></i>آنالیز</a></li>
+                                <li><a href="javascript:void(0);"><i class="fa fa-angle-right" aria-hidden="true"></i>ارز دیجیتال</a></li>
+                                <li><a href="javascript:void(0);"><i class="fa fa-angle-right" aria-hidden="true"></i>تکنولوژی</a></li>
+                                <li><a href="javascript:void(0);"><i class="fa fa-angle-right" aria-hidden="true"></i>مالی</a></li>
+                                <li><a href="javascript:void(0);"><i class="fa fa-angle-right" aria-hidden="true"></i>مشاوره آنلاین</a></li>
+                            </ul>
+                        </div>
+                        <div class="recent-post-box wow fadeup-animation" data-wow-delay="0.4s">
+                            <h2 class="h2-title">مطالب اخیر</h2>
+                            <div class="recent-post-list">
+                                <div class="recent-post-list-box">
+                                    <div class="recent-post-img">
+                                        <img src="{% static 'images/recent-post-1.jpg' %}" alt="post 1">
+                                    </div>
+                                    <div class="recent-post-text">
+                                        <p>لورم ایپسوم متن ساختگی.</p>
+                                        <span>21 دی 1400</span>
+                                    </div>
+                                </div>
+                                <div class="recent-post-list-box">
+                                    <div class="recent-post-img">
+                                        <img src="{% static 'images/recent-post-2.jpg' %}" alt="post 2">
+                                    </div>
+                                    <div class="recent-post-text">
+                                        <p>لورم ایپسوم متن ساختگی.</p>
+                                        <span>21 دی 1400</span>
+                                    </div>
+                                </div>
+                                <div class="recent-post-list-box">
+                                    <div class="recent-post-img">
+                                        <img src="{% static 'images/recent-post-3.jpg' %}" alt="post 3">
+                                    </div>
+                                    <div class="recent-post-text">
+                                        <p>لورم ایپسوم متن ساختگی.</p>
+                                        <span>21 دی 1400</span>
+                                    </div>
+                                </div>
+                                <div class="recent-post-list-box m-0">
+                                    <div class="recent-post-img">
+                                        <img src="{% static 'images/recent-post-4.jpg' %}" alt="post 4">
+                                    </div>
+                                    <div class="recent-post-text">
+                                        <p>لورم ایپسوم متن ساختگی.</p>
+                                        <span>21 دی 1400</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag-box wow fadeup-animation" data-wow-delay="0.4s">
+                            <h2 class="h2-title">برچسب ها</h2>
+                            <div class="tag-list-box">
+                            <ul>
+                                <li><a href="javascript:void(0);">کسب و کار</a></li>
+                                <li><a href="javascript:void(0);">شرکتی</a></li>
+                                <li><a href="javascript:void(0);">بازاریابی</a></li>
+                                <li><a href="javascript:void(0);">خلاقانه</a></li>
+                                <li><a href="javascript:void(0);">وب</a></li>
+                                <li><a href="javascript:void(0);">کارکنان</a></li>
+                                <li><a href="javascript:void(0);">مدرن</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Side Bar Start-->
+            </div>
+        </div>
+    </section>
+    <!--جزئیات وبلاگ Start-->
+
+{% endblock %}
